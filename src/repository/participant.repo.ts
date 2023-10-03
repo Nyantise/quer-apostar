@@ -1,17 +1,17 @@
 import { prisma } from "@config";
 import { ParticipantType } from "@schema";
 
-export const create = (data: ParticipantType) => {
+export function create (data: ParticipantType) {
   return prisma.participant.create({
     data,
   });
 };
 
-export const findMany = () => {
+export function findMany () {
   return prisma.participant.findMany();
 };
 
-export const findId = (id: number) => {
+export function findId (id: number) {
   return prisma.participant.findUnique({
     where: {
       id,
@@ -19,10 +19,21 @@ export const findId = (id: number) => {
   });
 };
 
-export const findName = (name: string) => {
+export function findName (name: string) {
   return prisma.participant.findFirst({
     where: {
       name,
+    },
+  });
+};
+
+export function discountBalance (userId: number, amount: number) {
+  return prisma.participant.update({
+    where: {id: userId},
+    data: {
+      balance: {
+        decrement: amount,
+      },
     },
   });
 };

@@ -1,17 +1,17 @@
 import 'express-async-errors';
 import express, { Express } from 'express';
 
-import { loadEnv, connectDb, disconnectDB } from '@config';
-
-loadEnv();
+import { connectDb, disconnectDB } from '@config';
 
 import { handleApplicationErrors } from '@middleware';
-import { participantsRouter } from '@router';
+import { participantsRouter, gameRouter, betRouter } from '@router';
 
 const app = express();
 app
   .use(express.json())
-  .use('/participants', participantsRouter)
+  .use("/participants", participantsRouter)
+  .use("/games", gameRouter)
+  .use("/bets", betRouter)
   .use(handleApplicationErrors);
 
 export function init(): Promise<Express> {

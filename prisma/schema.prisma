@@ -16,7 +16,7 @@ model Participant {
   name      String
   balance   Int      @default(0)
 
-  Bet       Bet[]
+  bets       Bet[]
   @@map("participants")
 }
 
@@ -30,7 +30,7 @@ model Game {
   awayTeamScore Int      @default(0)
   isFinished    Boolean  @default(false)
 
-  Bet           Bet[]
+  bets           Bet[]
   @@map("games")
 }
 
@@ -54,6 +54,6 @@ model Bet {
 
 enum Status {
   PENDING
-  WIN
+  WON
   LOST
 }

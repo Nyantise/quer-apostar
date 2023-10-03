@@ -9,3 +9,7 @@ export async function createParticipant (data: ParticipantType){
 
   return participants.create(data);
 };
+
+export async function findParticipants () {
+  return participants.findMany();
+};
