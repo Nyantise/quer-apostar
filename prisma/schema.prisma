@@ -20,12 +20,40 @@ model Participant {
   @@map("participants")
 }
 
-model Bet {
+model Game {
   id            Int      @id @default(autoincrement())
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
-  participantId Int
+  homeTeamName  String   
+  awayTeamName  String
+  homeTeamScore Int      @default(0)
+  awayTeamScore Int      @default(0)
+  isFinished    Boolean  @default(false)
 
-  participant   Participant     @relation(fields: [participantId], references: [id])
+  Bet           Bet[]
+  @@map("games")
+}
+
+model Bet {
+  id            Int         @id @default(autoincrement())
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+  homeTeamScore Int
+	awayTeamScore Int
+  status        Status      @default(PENDING)
+  amountBet     Float
+  amountWon     Float?
+  participantId Int
+  gameId        Int
+
+  participant   Participant @relation(fields: [participantId], references: [id])
+  game          Game        @relation(fields: [gameId], references: [id])
   @@map("bets")
+}
+
+
+enum Status {
+  PENDING
+  WIN
+  LOST
 }
