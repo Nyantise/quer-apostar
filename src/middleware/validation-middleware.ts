@@ -1,5 +1,5 @@
-import { invalidDataError } from '@/error';
-import { paramSchema } from '@/schema/param-schema';
+import { invalidDataError } from '@error';
+import { paramSchema } from '@schema/param-schema';
 import { NextFunction, Request, Response } from 'express';
 import httpStatus from 'http-status';
 import { ObjectSchema } from 'joi';

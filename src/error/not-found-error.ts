@@ -1,4 +1,4 @@
-import { MyError } from '@/protocols';
+import { MyError } from '@protocols';
 import httpStatus from 'http-status';
 
 export function notFoundError(): MyError {
