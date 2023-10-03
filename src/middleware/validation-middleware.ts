@@ -1,4 +1,4 @@
-import { invalidDataError } from '@error';
+import { MyError } from '@protocols';
 import { paramSchema } from '@schema/param-schema';
 import { NextFunction, Request, Response } from 'express';
 import httpStatus from 'http-status';
@@ -21,7 +21,7 @@ function validate(schema: ObjectSchema, type: 'body' | 'params') {
     if (!error) {
       next();
     } else {
-      res.status(httpStatus.BAD_REQUEST).send(invalidDataError(error.details.map((d) => d.message)));
+      res.status(httpStatus.BAD_REQUEST).send(new MyError(httpStatus.BAD_REQUEST, error.details.map(d => d.message)));
     }
   };
 }

@@ -1,1 +1,1 @@
-export * from "./participants.router"
+export * from "./participant.router"

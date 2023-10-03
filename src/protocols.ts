@@ -11,7 +11,15 @@ export type RequestError = {
   message: string;
 };
 
-export type MyError = {
-  code?: number,
-  content: ApplicationError
+export class MyError {
+  status: number;
+  message: string | string[];
+  name: string;
+  data: object | null;
+  statusText: string;
+
+  constructor(status:number, message: string | string[]){
+    this.status=status
+    this.message=message
+  }
 }
