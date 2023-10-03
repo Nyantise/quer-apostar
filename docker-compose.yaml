@@ -1,0 +1,10 @@
+services: 
+  back:
+    build: .
+    container_name: back
+    ports:
+      - 8080:4000
+    env_file:
+      - .env
+    networks:
+      - postgres_net
