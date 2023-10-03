@@ -1,12 +1,12 @@
-import * as games from "@repository/game.repo";
-import * as participants from "@repository/participant.repo";
-import * as bets from "@repository/bet.repo";
-import { MyError } from "@protocols";
+import * as games from "@/repository/game.repo";
+import * as participants from "@/repository/participant.repo";
+import * as bets from "@/repository/bet.repo";
+import { MyError } from "@/protocols";
 import httpStatus from "http-status";
-import { BetType } from "@schema";
+import { BetType } from "@/schema";
 
 export async function createBet (data: BetType) {
-  if (data.amountBet < 100) throw new MyError(httpStatus.NOT_ACCEPTABLE, "Minimum value: $ 1,00");
+  if (data.amountBet < 100) throw new MyError(httpStatus.BAD_REQUEST, "Minimum value: $ 1,00");
 
   const user = await participants.findId(data.participantId);
   if (!user) throw new MyError(httpStatus.NOT_FOUND, "Participant not found");

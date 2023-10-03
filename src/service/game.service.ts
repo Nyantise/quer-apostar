@@ -1,9 +1,9 @@
-import { MyError } from "@protocols";
-import { GameType, finishGameType } from "@schema";
+import { MyError } from "@/protocols";
+import { GameType, finishGameType } from "@/schema";
 import httpStatus from "http-status";
-import * as games from "@repository/game.repo";
-import * as bets from "@repository/bet.repo";
-import * as participants from "@repository/participant.repo";
+import * as games from "@/repository/game.repo";
+import * as bets from "@/repository/bet.repo";
+import * as participants from "@/repository/participant.repo";
 import { Bet } from "@prisma/client";
 
 

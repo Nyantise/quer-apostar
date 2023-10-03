@@ -4,7 +4,24 @@ services:
     container_name: back
     ports:
       - 8080:4000
-    env_file:
-      - .env
+    environment:
+      - DATABASE_URL:$DATABASE_URL
     networks:
       - postgres_net
+    depends_on:
+      - postgres
+
+
+  postgres:
+    image: postgres
+    container_name: postgres
+    ports:
+      - 5433:5432
+    environment:
+      - POSTGRES_PASSWORD=postgres
+    networks:
+      - postgres_net
+
+networks:
+  postgres_net:
+  

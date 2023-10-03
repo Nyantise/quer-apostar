@@ -1,6 +1,6 @@
-import { prisma } from "@config";
+import { prisma } from "@/config";
 import { Status } from "@prisma/client";
-import { BetType } from "@schema";
+import { BetType } from "@/schema";
 
 export function create (data: BetType) {
   return prisma.bet.create({

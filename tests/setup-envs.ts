@@ -1,3 +1,5 @@
-import { loadEnv } from '@/config';
+import dotenv from "dotenv";
+import dotenvExpand from "dotenv-expand";
 
-loadEnv();
+const myEnv = dotenv.config({ path: ".env.test" });
+dotenvExpand.expand(myEnv);

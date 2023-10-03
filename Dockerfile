@@ -1,17 +1,15 @@
-# Build
-FROM node:alpine as build
+FROM node:alpine
 
-WORKDIR /back
+WORKDIR /usr/back
 
 COPY . .
 
 RUN npm install
 
 RUN npx prisma generate
-RUN npx prisma migrate deploy
-
+RUN mpx prisma migrate deploy
 RUN npm run build
 
-EXPOSE 8080
+EXPOSE 4000
 
-CMD ["npm", "start"]
+CMD ["npm", "run", "start"]

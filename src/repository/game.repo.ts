@@ -1,5 +1,5 @@
-import { prisma } from "@config";
-import { GameType, finishGameType } from "@schema";
+import { prisma } from "@/config";
+import { GameType, finishGameType } from "@/schema";
 
 export function create (data: GameType) {
   return prisma.game.create({

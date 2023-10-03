@@ -1,7 +1,7 @@
-import { MyError } from "@protocols";
+import { MyError } from "@/protocols";
 import { Request, Response } from "express";
 import httpStatus from "http-status";
-import * as games from "@service/game.service"
+import * as games from "@/service/game.service"
 
 export const postGame = async (req: Request, res: Response) => {
   try {
