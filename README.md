@@ -3,31 +3,24 @@ Uma API que faz o papel de banca de apostas para jogos esportivos.
 
 
 ## em Desenvolvimento
-1 - Defina o arquivo .env, com a variavel DATABASE_URL, sendo ela um banco PostgreSQL, podendo ser usado o seguinte comando para criar um .env baseado no exemplo:
+1 - Defina os arquivos .env, com a variável DATABASE_URL, sendo ela uma url PostgreSQL funcional, podendo ser usado o seguinte comando para criar um .env baseado no arquivo exemplo:
 ```bash
-cp .env.example .env 
+cp .env.example .env.development && cp .env.example .env.test
 ```
 
-2 - Execute o seguinte comando para instalar dependencias:
+2 - Execute o seguinte comando para instalar dependências e configurar o banco de desenvolvimento:
 ```bash
-npm install 
+npm run dev:firstrun
 ```
 
-3 - Configure o banco de dados com o Prisma (use um banco de dados vazio):
-```bash
-npx prisma migrate dev
-# e Depois:
-npx prisma generate
-```
-
-4 - Por fim execute a aplicação com:
+3 - Por fim execute a aplicação em desenvolvimento com:
 ```bash
 npm run dev
 ```
 
 
 ## em Produção
-Usando Docker compose, basta entrar na pasta do projeto e executar:
+Usando Docker compose, na pasta do projeto execute:
 ```bash
-docker compose up -d
+docker compose up
 ```
