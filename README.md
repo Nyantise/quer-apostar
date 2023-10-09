@@ -1,5 +1,6 @@
 # Quer apostar quanto?
 Uma API que faz o papel de banca de apostas para jogos esportivos.
+Deploy da aplicação: https://quer-apostar-584s.onrender.com
 
 
 ## em Desenvolvimento
