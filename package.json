@@ -8,6 +8,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "start": "sleep 10 && npx prisma migrate deploy && npx prisma generate && node dist/server.js",
+    "gen:env:files": "cp .env.example .env.development && cp .env.example .env.test",
 
     "test": "cross-env NODE_ENV=test jest --passWithNoTests --runInBand",
     "test:migration:run": "npm run test:load-envs prisma migrate deploy",

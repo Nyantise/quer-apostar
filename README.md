@@ -3,9 +3,9 @@ Uma API que faz o papel de banca de apostas para jogos esportivos.
 
 
 ## em Desenvolvimento
-1 - Defina os arquivos .env, com a variável DATABASE_URL, sendo ela uma url PostgreSQL funcional, podendo ser usado o seguinte comando para criar um .env baseado no arquivo exemplo:
+1 - Defina os arquivos .env, com a variável DATABASE_URL, sendo ela uma url PostgreSQL funcional, podendo ser usado o seguinte comando para gerá-los baseando-se no arquivo exemplo:
 ```bash
-cp .env.example .env.development && cp .env.example .env.test
+npm run gen:env:files
 ```
 
 2 - Execute o seguinte comando para instalar dependências e configurar o banco de desenvolvimento:
@@ -20,7 +20,7 @@ npm run dev
 
 
 ## em Produção
-Usando Docker compose, na pasta do projeto execute:
+Usando Docker compose, dentro da pasta do projeto execute:
 ```bash
 docker compose up
 ```
