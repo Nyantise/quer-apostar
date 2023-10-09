@@ -1,5 +1,5 @@
 {
-  "name": "projeto-drivenpass",
+  "name": "quer-apostar",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,10 +7,7 @@
   "license": "ISC",
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
-    "start": "node dist/server.js",
-    "test": "cross-env NODE_ENV=test jest --passWithNoTests --runInBand",
-    "test:coverage": "cross-env NODE_ENV=test jest --passWithNoTests --runInBand --coverage --collectCoverageFrom='./src/**'",
-    "test:seed": "npm run test:load-envs prisma db seed",
+    "start": "sleep 10 && npx prisma migrate deploy && npx prisma generate && node dist/server.js",
     "dev:load-envs": "dotenv -e .env.development",
     "dev:seed": "npm run dev:load-envs prisma db seed",
     "dev": "cross-env NODE_ENV=development nodemon --watch 'src/' --exec 'ts-node -r tsconfig-paths/register ./src/server.ts' -e ts"
@@ -32,7 +29,7 @@
     "typescript-transform-paths": "^3.4.6"
   },
   "dependencies": {
-    "@prisma/client": "^3.14.0",
+    "@prisma/client": "^4.10.0",
     "cross-env": "^7.0.3",
     "dotenv": "^16.0.1",
     "dotenv-expand": "^8.0.3",
@@ -40,6 +37,6 @@
     "express-async-errors": "^3.1.1",
     "http-status": "^1.5.2",
     "joi": "^17.6.0",
-    "prisma": "^3.14.0"
+    "prisma": "^4.10.0"
   }
 }

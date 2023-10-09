@@ -1,6 +1,6 @@
-import { finishGame, getGameInfo, getGames, postGame } from "@/controller";
-import { validateBody, validateParams } from "@/middleware";
-import { finishGameSchema, gameSchema } from "@/schema";
+import { finishGame, getGameInfo, getGames, postGame } from "../controller";
+import { validateBody, validateParams } from "../middleware";
+import { finishGameSchema, gameSchema } from "../schema";
 import { Router } from "express";
 
 const gameRouter = Router();

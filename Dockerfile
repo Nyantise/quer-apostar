@@ -2,12 +2,12 @@ FROM node:alpine
 
 WORKDIR /usr/back
 
+ARG DATABASE_URL=$DATABASE_URL
+
 COPY . .
 
 RUN npm install
 
-RUN npx prisma generate
-RUN mpx prisma migrate deploy
 RUN npm run build
 
 EXPOSE 4000

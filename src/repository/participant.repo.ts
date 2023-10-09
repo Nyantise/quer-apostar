@@ -1,5 +1,5 @@
-import { prisma } from "@/config";
-import { ParticipantType } from "@/schema";
+import { prisma } from "../config";
+import { ParticipantType } from "../schema";
 
 export function create (data: ParticipantType) {
   return prisma.participant.create({

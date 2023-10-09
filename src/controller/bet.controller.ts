@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import httpStatus from "http-status";
-import { createBet } from "@/service/bet.service";
-import { MyError } from "@/protocols";
+import { createBet } from "../service/bet.service";
+import { MyError } from "../protocols";
 
 export const postBet = async (req: Request, res: Response) => {
   try {

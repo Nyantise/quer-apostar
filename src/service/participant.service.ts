@@ -1,6 +1,6 @@
-import { MyError } from "@/protocols";
-import * as participants from "@/repository/participant.repo";
-import { ParticipantType } from "@/schema";
+import { MyError } from "../protocols";
+import * as participants from "../repository/participant.repo";
+import { ParticipantType } from "../schema";
 import httpStatus from "http-status";
 
 export async function createParticipant (data: ParticipantType){

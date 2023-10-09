@@ -1,10 +1,10 @@
 import 'express-async-errors';
 import express, { Express } from 'express';
 
-import { connectDb, disconnectDB } from '@/config';
+import { connectDb, disconnectDB } from './config';
 
-import { handleApplicationErrors } from '@/middleware';
-import { participantsRouter, gameRouter, betRouter } from '@/router';
+import { handleApplicationErrors } from './middleware';
+import { participantsRouter, gameRouter, betRouter } from './router';
 
 const app = express();
 app

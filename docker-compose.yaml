@@ -1,27 +1,30 @@
-services: 
+services:
   back:
     build: .
     container_name: back
     ports:
-      - 8080:4000
+      - 4000:4000
     environment:
-      - DATABASE_URL:$DATABASE_URL
+      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/quer_apostar?schema=public
     networks:
-      - postgres_net
+      - postgres-net
     depends_on:
       - postgres
-
-
+      
   postgres:
-    image: postgres
     container_name: postgres
+    image: postgres:alpine3.18
     ports:
       - 5433:5432
     environment:
       - POSTGRES_PASSWORD=postgres
     networks:
-      - postgres_net
+      - postgres-net
+    # volumes:
+    #   - postgres-volume:/var/lib//postgresql/data
 
 networks:
-  postgres_net:
-  
+  postgres-net:
+
+# volumes:
+#   postgres-volume:

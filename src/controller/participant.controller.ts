@@ -1,7 +1,7 @@
-import { createParticipant, findParticipants } from "@/service/participant.service";
+import { createParticipant, findParticipants } from "../service/participant.service";
 import { Request, Response } from "express";
 import httpStatus from "http-status";
-import { MyError} from '@/protocols';
+import { MyError} from '../protocols';
 
 export async function postParticipant (req: Request, res: Response) {
     try {
